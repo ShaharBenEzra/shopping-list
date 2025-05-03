@@ -40,3 +40,12 @@ resetButton.addEventListener('click', function() {
         renderList();
     }
 });
+
+document.getElementById('save-img-btn').addEventListener('click', function() {
+    html2canvas(document.querySelector('.app-container')).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'shopping-list.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+});
